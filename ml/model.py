@@ -1,7 +1,17 @@
 import pickle
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
+from time import time
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline, make_pipeline
+
+
+
 # TODO: add necessary import
+
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -19,7 +29,25 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    # TODO: implement the function
+    #initialize learner
+    learner = RandomForestClassifier()
+
+    results = {}
+
+    #Start timer
+    start = time()
+
+    #fit model with training data
+    learner.fit(X_train, y_train)
+
+    #stop timer
+    end = time()
+
+    #record training time
+    results['train_time']= end-start
+
+    return learner, results
+
     pass
 
 
@@ -59,6 +87,12 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
+    #use model to predict data
+    preds = model.predict(X)
+
+    #return predictions
+    return preds
+
     # TODO: implement the function
     pass
 
@@ -72,7 +106,14 @@ def save_model(model, path):
     path : str
         Path to save pickle file.
     """
+
+
+
+
+
+
     # TODO: implement the function
+
     pass
 
 def load_model(path):
