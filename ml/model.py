@@ -1,12 +1,14 @@
 import pickle
+import sys
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-from data import process_data
 from time import time
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
+sys.path.append('../ml')
+from data import process_data
 
 
 
@@ -29,26 +31,9 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    #initialize learner
-    learner = RandomForestClassifier()
-
-    results = {}
-
-    #Start timer
-    start = time()
-
-    #fit model with training data
-    learner.fit(X_train, y_train)
-
-    #stop timer
-    end = time()
-
-    #record training time
-    results['train_time']= end-start
-
-    return learner, results
-
-    pass
+    model=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=42)
+    model.fit(X_train,y_train)
+    return model
 
 
 def compute_model_metrics(y, preds):
@@ -121,8 +106,8 @@ def load_model(path):
 
     with open(path,'rb') as file:
 
-       model = pickle.load(file)
-    return model
+       loaded_model = pickle.load(file)
+    return loaded_model
 
 
 def performance_on_categorical_slice(
@@ -165,8 +150,8 @@ def performance_on_categorical_slice(
     X_slice, y_slice, _, _ = process_data(
         data[data[column_name] == slice_value],
         categorical_features=categorical_features,
-        label=label,
         training=False,
+        label="salary",
         encoder=encoder,
         lb=lb,
     )
