@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from data import process_data
-from model import (
+from ml.data import process_data
+from ml.model import (
     compute_model_metrics,
     inference,
     load_model,
@@ -60,8 +60,12 @@ model = train_model(X_train,y_train)
 # save the model and the encoder
 model_path = os.path.join(project_path, "model", "model.pkl")
 save_model(model, model_path)
+print(f"model saved to {model_path}")
+
 encoder_path = os.path.join(project_path, "model", "encoder.pkl")
 save_model(encoder, encoder_path)
+print(f"model saved to {encoder_path}")
+
 
 # load the model
 model = load_model(

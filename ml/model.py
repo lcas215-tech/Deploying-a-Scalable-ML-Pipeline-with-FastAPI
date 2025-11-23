@@ -7,8 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
-sys.path.append('../ml')
-from data import process_data
+from .data import process_data
 
 
 
