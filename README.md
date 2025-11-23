@@ -29,4 +29,4 @@ Working in a command line environment is recommended for ease of use with git an
     * POST that does model inference.
 
 #Github link 
-https://github.com/lcas215-tech/Deploying-a-Scalable-ML-Pipeline-with-FastAPI.git
+https://github.com/lcas215-tech/Deploying-a-Scalable-ML-Pipeline-with-FastAPI
