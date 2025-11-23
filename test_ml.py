@@ -30,8 +30,6 @@ def test_preprocessing():
     assert lb is not None
 
 
-
-
 # TODO: implement the second test. Change the function name and input as needed
 def test_mlmodel():
     """

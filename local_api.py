@@ -14,8 +14,6 @@ print("GET status:", r.status_code)
 # TODO: print the welcome message
 print("GET response:", r.json())
 
-
-
 data = {
     "age": 37,
     "workclass": "Private",
