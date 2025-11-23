@@ -24,6 +24,9 @@ Working in a command line environment is recommended for ease of use with git an
 * Write a model card using the provided template.
 
 # API Creation
-*  Create a RESTful API using FastAPI this must implement:
+* Create a RESTful API using FastAPI this must implement:
     * GET on the root giving a welcome message.
     * POST that does model inference.
+
+#Github link 
+https://github.com/lcas215-tech/Deploying-a-Scalable-ML-Pipeline-with-FastAPI.git
